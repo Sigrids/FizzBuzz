@@ -1,0 +1,50 @@
+#!/bin/bash
+echo "Did you want to specify the nummber of lines?"
+echo "Please type Y for yes and N for no."
+read -r answer
+case "$answer" in
+Y)
+   echo "How many line numbers would you like?" 
+   read -r num
+   counter=1
+   until [ $counter -gt "$num" ]
+   do
+	if [ $(($counter%3)) -eq 0 ] && [ $(($counter%5)) -eq 0 ]; then
+	   echo "FizzBuzz"
+	   ((counter++))
+	   else
+		if [ $(($counter%3)) -eq 0 ]; then
+		   echo "Fizz"
+		   ((counter++))
+		elif [ $(($counter%5)) -eq 0 ]; then
+		   echo "Buzz"
+		   ((counter++))
+		else
+		   echo $counter
+		   ((counter++))
+		fi
+	fi
+   done
+;;
+N)
+count=1
+   until [ $count -gt "20" ]
+   do
+        if [ $(($count%3)) -eq 0 ] && [ $(($count%5)) -eq 0 ]; then
+           echo "FizzBuzz"
+           ((count++))
+           else
+                if [ $(($count%3)) -eq 0 ]; then
+                   echo "Fizz"
+                   ((count++))
+                elif [ $(($count%5)) -eq 0 ]; then
+                   echo "Buzz"
+                   ((count++))
+                else
+                   echo $count
+                   ((count++))
+                fi
+        fi
+   done
+;;
+esac
